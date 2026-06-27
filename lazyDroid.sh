@@ -44,7 +44,7 @@ function sign {
     $JARSIGNER -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore $KEYSTORE ${NEW_APK} $KEYALIAS > /dev/null
     if [ $? -eq "0" ]
     then
-        echo -e "---> ${NEW_APK} Created and signed sucessfully\n"
+        echo -e "---> ${NEW_APK} Created and signed successfully\n"
         install ${NEW_APK}
     else
         echo "---> Something was wrong trying to sign the app. Press Enter to continue"
@@ -277,7 +277,7 @@ function extractApp {
 
         checkfile ${newapp}.apk
         #TODO: The /sdcard/{newapp}.apk should be removed
-        echo "---> ${newapp}.apk downloaded sucessfully. Press Enter to Continue..."
+        echo "---> ${newapp}.apk downloaded successfully. Press Enter to Continue..."
         read kk
         ;;
     *)
@@ -339,8 +339,8 @@ function getSnapshot {
 
             if [ $? -eq "0" ]
             then
-                echo "App data downloaded sucessfully"
-                echo "Folder ${app}_${DATE} created sucessfully."
+                echo "App data downloaded successfully"
+                echo "Folder ${app}_${DATE} created successfully."
                 echo -n "Press Enter to continue... "
 
             else
@@ -356,7 +356,7 @@ function getSnapshot {
         mv sdcard sdcard_${DATE}
         if [ $? -eq "0" ]
         then
-            echo -e "---> Folder sdcard_${DATE} created sucessfully.\n"
+            echo -e "---> Folder sdcard_${DATE} created successfully.\n"
             echo -n "Press Enter to continue... "
         else
             echo "---> Something was wrong. Press Enter to continue"
@@ -375,9 +375,9 @@ function getSnapshot {
             echo -n "Error: $(cat /tmp/log_${DATE} | sed 's/${ADB}: //' | sed 's/error: //')"
             echo -n "Press Enter to Continue..."
         else
-            echo "---> ${folder} downloaded sucessfully"
+            echo "---> ${folder} downloaded successfully"
             mv ${folder} ${folder}_${DATE}
-            echo -e "---> Folder ${folder}_${DATE} created sucessfully.\n"
+            echo -e "---> Folder ${folder}_${DATE} created successfully.\n"
             echo -n "Press Enter to continue... "
         fi
         rm /tmp/log_${DATE}
